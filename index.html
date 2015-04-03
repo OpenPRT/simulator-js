@@ -42,6 +42,17 @@
           }
           geoJson.features.push(feature);
         });
+        $.each(data.links,function (link) {
+          var feature = {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "LineString",
+              "coordinates": link.coordinates
+            }
+          }
+          geoJson.features.push(feature);
+        });
         return geoJson;
       }
       google.maps.event.addDomListener(window, 'load', initialize);

@@ -25,7 +25,7 @@
       ]
     }
   },
-  "link":[
+  "links":[
     {
       "from":"CHS-Terminal-A",
       "to":"CHS-Terminal-B",
