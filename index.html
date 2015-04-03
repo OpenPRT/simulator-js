@@ -42,7 +42,7 @@
           }
           geoJson.features.push(feature);
         });
-        $.each(data.links,function (link) {
+        $.each(data.links,function (index,link) {
           var feature = {
             "type": "Feature",
             "properties": {},
