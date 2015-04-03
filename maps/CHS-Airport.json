@@ -2,23 +2,27 @@
   "stations":{
     "CHS-Terminal-A":{
       "type":"",
-      "description":"",
+      "description":"First Terminal station infront of the Check-In area.",
       "coordinates":[
         -80.03625333309174,
         32.88414172200757
-      ],
-      "geoJSON":{
-        "type": "Feature",
-        "properties": {
-          "label":"CHS-Aiport-A"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-
-          ]
-        }
-      }
+      ]
+    },
+    "CHS-Terminal-B":{
+      "type":"",
+      "description":"Second Terminal station in the middle of the terminal.",
+      "coordinates":[
+        -80.03709554672241,
+        32.884389489964946
+      ]
+    },
+    "CHS-Terminal-C":{
+      "type":"",
+      "description":"Third Terminal station picking up infront of rental cars.",
+      "coordinates":[
+        -80.03759443759918,
+        32.884362460766916
+      ]
     }
   }
 }
