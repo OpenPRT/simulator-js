@@ -1,0 +1,24 @@
+{
+  "stations":{
+    "CHS-Terminal-A":{
+      "type":"",
+      "description":"",
+      "coordinates":[
+        -80.03625333309174,
+        32.88414172200757
+      ],
+      "geoJSON":{
+        "type": "Feature",
+        "properties": {
+          "label":"CHS-Aiport-A"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+
+          ]
+        }
+      }
+    }
+  }
+}

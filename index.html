@@ -15,6 +15,30 @@
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
+
+        $.getJSON('maps/CHS-Airport.json',function(data) {
+          geoJson = convertToGeoJSON(data);
+          map.data.addGeoJson(geoJson);
+        });
+
+      }
+
+      function convertToGeoJSON(data) {
+        var geoJson = [];
+        $.each(data.stations,function (name,properties) {
+          var feature = {
+            "type": "Feature",
+            "properties": {
+              "label":name
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": properties.coordinates
+            }
+          }
+          geoJson[] = feature;
+        });
+        return geoJson;
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
