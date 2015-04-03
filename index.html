@@ -9,10 +9,9 @@
     </script>
     <script type="text/javascript">
       function initialize() {
-        alert(document.domain);
-        var mapOptions =
+        var mapOptions = {
           center: { lat: 32.8795691, lng: -80.0184568},
-          zoom: 9
+          zoom: 8
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
