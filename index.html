@@ -25,7 +25,10 @@
       }
 
       function convertToGeoJSON(data) {
-        var geoJson = [];
+        var geoJson = {
+          "type": "FeatureCollection",
+          "features":[]
+        };
         $.each(data.stations,function (name,properties) {
           var feature = {
             "type": "Feature",
@@ -37,7 +40,7 @@
               "coordinates": properties.coordinates
             }
           }
-          geoJson.push(feature);
+          geoJson.features.push(feature);
         });
         return geoJson;
       }
