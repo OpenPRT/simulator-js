@@ -40,6 +40,9 @@
               "coordinates": properties.coordinates
             }
           }
+          feature.setStyle({
+            icon: 'icons/station.png'
+          });
           geoJson.features.push(feature);
         });
         $.each(data.links,function (index,link) {
