@@ -29,7 +29,7 @@
     {
       "from":"CHS-Terminal-A",
       "to":"CHS-Terminal-B",
-      "line":[
+      "coordinates":[
         [
           -80.03625333309174,
           32.88414172200757
