@@ -47,11 +47,21 @@
           geoJson.features.push(feature);
         });
         $.each(data.links,function (index,link) {
-          var coordinates = [data.stations[link['from']].outs[link['to']].out];
+          console.log(link);
+          var coordinates = [];
+          if (data.stations[link['from']]) {
+            coordinates.push(data.stations[link['from']].outs[link['to']].out);
+          } else if (data.nodes[link['from']]) {
+            coordinates.push(data.nodes[link['from']].outs[link['to']].out);
+          }
           $.each(link.coordinates,function(index,coordinate) {
             coordinates.push(coordinate);
           });
-          coordinates.push(data.stations[link['to']].coordinates);
+          if (data.stations[link['to']]) {
+            coordinates.push(data.stations[link['to']].coordinates);
+          } else if (data.nodes[link['to']]) {
+            coordinates.push(data.nodes[link['to']].coordinates);
+          }
           var feature = {
             "type": "Feature",
             "properties": {},
@@ -64,6 +74,7 @@
         });
         return geoJson;
       }
+
       google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
