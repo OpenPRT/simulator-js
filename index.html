@@ -59,7 +59,7 @@
             if (data.nodes[link['from']]['type'] == 'split') {
               coordinates.push(data.nodes[link['from']].outs[link['to']].out);
             } else if(data.nodes[link['from']]['type'] == 'merge') {
-              coordinates.push(data.nodes[link['from']].out);
+              coordinates.push(data.nodes[link['from']].coordinates);
             }
           }
           $.each(link.coordinates,function(index,coordinate) {
