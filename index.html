@@ -47,7 +47,7 @@
           geoJson.features.push(feature);
         });
         $.each(data.links,function (index,link) {
-          var coordinates = [data.stations[link['from']].coordinates];
+          var coordinates = [data.stations[link['from']].outs[link['to']].out];
           coordinates.push(link.coordinates);
           coordinates.push(data.stations[link['to']].coordinates);
           var feature = {
