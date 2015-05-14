@@ -13,10 +13,13 @@ import uuid
 
 import podcar
 
+from geopy.distance import vincenty
+
 podcars = {}
 tickets = dict()
 
 # Ticket
+
 class Ticket(JSONEncoder):
     status = 'requested'
     start = []
@@ -36,10 +39,10 @@ class Ticket(JSONEncoder):
 
         return response
 
-
 # Server
 
 class Server(protocol.Protocol):
+    map_data = Map()
     def connectionMade(self):
         self._peer = self.transport.getPeer()
     def dataReceived(self, data):
@@ -94,7 +97,7 @@ class ServerFactory(protocol.Factory):
 # Server Setup
 
 Timer(0.5, podcar.addPodCar, args=["001","A"]).start()
-Timer(5.0, podcar.addPodCar, args=["002","A"]).start()
+Timer(1.0, podcar.addPodCar, args=["002","A"]).start()
 reactor.listenTCP(1600, ServerFactory())
 
 # ServerAPI for Simulator front end.
@@ -130,6 +133,21 @@ class ServerAPI(Resource):
         #return '<html><body>You submitted: %s</body></html>' % (cgi.escape(request.args["the-field"][0]),)
         return json.dumps(response)
 
+class Map():
+    map_data = None
+    def __init__(self):
+        json_data = open('maps/CHS-Airport.json').read()
+        map_data = json.loads(json_data)
+
+    def route(self,start,end):
+        route=[]
+        return route
+    def distanceBetweenStations(self,station_A,station_B):
+        self.map_data.stations[station_A]
+    def distanceOfArray(self,array):
+        distance = 0
+
+        return vincenty(newport_ri, cleveland_oh).meters
 
 root = Resource()
 root.putChild("ticket", ServerAPI())
