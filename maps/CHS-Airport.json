@@ -355,6 +355,11 @@
       "from":"CHS-Terminal-2",
       "to":"CHS-Terminal-A",
       "coordinates":[]
+    },
+    {
+      "from":"CHS-Parking-B",
+      "to":"CHS-Parking-G",
+      "coordinates":[]
     }
   ],
   "nodes":{
