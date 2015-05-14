@@ -47,12 +47,15 @@
           geoJson.features.push(feature);
         });
         $.each(data.links,function (index,link) {
+          var coordinates = [data.stations[link['from']].coordinates];
+          coordinates.push(link.coordinates);
+          coordinates.push(data.stations[link['to']].coordinates);
           var feature = {
             "type": "Feature",
             "properties": {},
             "geometry": {
               "type": "LineString",
-              "coordinates": link.coordinates
+              "coordinates": coordinates
             }
           }
           geoJson.features.push(feature);
