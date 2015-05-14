@@ -350,6 +350,11 @@
           32.88320920730357
         ]
       ]
+    },
+    {
+      "from":"CHS-Parking-2",
+      "to":"CHS-Terminal-A",
+      "coordinates":[]
     }
   ],
   "nodes":{
