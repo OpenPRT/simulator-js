@@ -90,11 +90,35 @@
     },
     "CHS-Parking-D":{
       "type":"C",
-      "description":"Long-term parking lot two.",
+      "description":"Long-term parking lot three.",
       "coordinates":[
         -80.03958195447922,
         32.88014580491628
-      ]
+      ],
+      "outs":{
+        "CHS-Parking-E":{
+          "out":[
+            -80.0394719839096,
+            32.8800241676359
+          ]
+        }
+      }
+    },
+    "CHS-Parking-E":{
+      "type":"C",
+      "description":"Long-term parking lot three.",
+      "coordinates":[
+          -80.03869414329529,
+          32.879740346665834
+        ],
+      "outs":{
+        "CHS-Parking-E":{
+          "out":[
+            -80.0384259223938,
+            32.879636729259815
+          ]
+        }
+      }
     }
   },
   "links":[
@@ -291,6 +315,20 @@
           -80.03958195447922,
           32.88014580491628
         ]
+      ]
+    },
+    {
+      "from":"CHS-Parking-D",
+      "to":"CHS-Parking-E",
+      "coordinates":[
+        [
+            -80.0394719839096,
+            32.8800241676359
+          ],
+          [
+            -80.03869414329529,
+            32.879740346665834
+          ]
       ]
     }
   ],
