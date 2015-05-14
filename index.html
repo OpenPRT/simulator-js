@@ -25,7 +25,11 @@
           });
         });
 
-      }
+      }/*data.stations["CHS-Parking-F"].outs["CHS-Terminal-A"].out
+
+      from:
+      to:
+      */
 
       function convertToGeoJSON(data) {
         var geoJson = {
@@ -52,7 +56,11 @@
           if (data.stations[link['from']]) {
             coordinates.push(data.stations[link['from']].outs[link['to']].out);
           } else if (data.nodes[link['from']]) {
-            coordinates.push(data.nodes[link['from']].outs[link['to']].out);
+            if (data.nodes[link['from']]['type'] == 'split') {
+              coordinates.push(data.nodes[link['from']].outs[link['to']].out);
+            } else if(data.nodes[link['from']]['type'] == 'merge') {
+              coordinates.push(data.nodes[link['from']].out);
+            }
           }
           $.each(link.coordinates,function(index,coordinate) {
             coordinates.push(coordinate);
@@ -60,7 +68,11 @@
           if (data.stations[link['to']]) {
             coordinates.push(data.stations[link['to']].coordinates);
           } else if (data.nodes[link['to']]) {
-            coordinates.push(data.nodes[link['to']].coordinates);
+            if (data.nodes[link['to']]['type'] == 'split') {
+              coordinates.push(data.nodes[link['to']].coordinates);
+            } else if(data.nodes[link['to']]['type'] == 'merge') {
+              coordinates.push(data.nodes[link['to']].ins[link['from']].in);
+            }
           }
           var feature = {
             "type": "Feature",

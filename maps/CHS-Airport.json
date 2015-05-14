@@ -66,7 +66,7 @@
     },
     "CHS-Parking-B":{
       "type":"C",
-      "description":"Short-term parking lot.",
+      "description":"Short-term parking lot one.",
       "coordinates":[
         -80.03794580698013,
         32.883614649684915
@@ -127,10 +127,25 @@
         32.87938444289519
       ],
       "outs":{
-        "CHS-Terminal-A":{
+        "CHS-Terminal-2":{
           "out":[
-            -80.03726184368134,
-            32.87923577380834
+            -80.03502488136292,
+            32.883425443471126
+          ]
+        }
+      }
+    },"CHS-Parking-G":{
+      "type":"C",
+      "description":"Short-term parking lot tow.",
+      "coordinates":[
+        -80.03768026828766,
+        32.87938444289519
+      ],
+      "outs":{
+        "CHS-Terminal-2":{
+          "out":[
+            -80.0352394580841,
+            32.883511036808336
           ]
         }
       }
@@ -290,7 +305,7 @@
     },
     {
       "from":"CHS-Parking-F",
-      "to":"CHS-Terminal-A",
+      "to":"CHS-Terminal-2",
       "coordinates":[
         [
           -80.0363552570343,
@@ -355,6 +370,31 @@
           "out":[
             -80.03808796405792,
             32.88426110120079
+          ],
+          "thru_time":15000,
+          "thru_speed":10
+        }
+      }
+    },
+    "CHS-Terminal-2":{
+      "type":"merge",
+      "coordinates":[
+        -80.03782778978348,
+        32.88432642182335
+      ],
+      "ins":{
+        "CHS-Parking-F":{
+          "in":[
+            -80.03502488136292,
+            32.883425443471126
+          ],
+          "thru_time":15000,
+          "thru_speed":10
+        },
+        "CHS-Parking-G":{
+          "in":[
+            -80.0352394580841,
+            32.883511036808336
           ],
           "thru_time":15000,
           "thru_speed":10
