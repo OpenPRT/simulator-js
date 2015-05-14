@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#request").click(function () {
+          requestPodCar();
+        });
+      });
+
+      var ticket_id = null;
+      var ticket = null;
+      var long_polling;
+
+      function requestPodCar(location,time) {
+        if (location == null) {
+          location = getCurrentLocation();
+        }
+        if (time == null) {
+          time = 0;
+        }
+        $.ajax({
+          'url':'http://localhost:1601/ticket',
+          'method':'POST',
+          'data':{
+            'location':location,
+            'time':time
+          },
+          "type":"json",
+          success:function (data) {
+            ticket_id = data.ticket_id;
+            long_polling = setInterval(checkTicket, 1000);
+          }
+        });
+      }
+
+      function checkTicket() {
+        $.ajax({
+          'url':'http://localhost:1601/ticket?ticket_id='+ticket_id,
+          'method':'GET',
+          "type":"json",
+          success:function (data) {
+            if (data.ticket.status == "accepted") {
+              clearInterval(long_polling);
+              ticket = data.ticket;
+              long_polling = setInterval(checkPosition, 5000);
+            }
+          }
+        });
+      }
+
+      function checkPosition() {
+        $.ajax({
+          'url':'http://localhost:1601/ticket?ticket_id='+ticket_id,
+          'method':'GET',
+          "type":"json",
+          success:function (data) {
+            alert(JSON.stringify(data));
+            if (data.status == "arrived") {
+              clearInterval(long_polling)
+            }
+            clearInterval(long_polling)
+          }
+        });
+        clearInterval(long_polling)
+      }
+
+      function getCurrentLocation() {
+        return [
+          -80.03709554672241,
+          32.884389489964946
+        ];
+      }
+    </script>
+  </head>
+  <body>
+    <div id="request">Request PodCar</div>
+  </body>
+</html>

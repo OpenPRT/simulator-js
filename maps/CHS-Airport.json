@@ -1,7 +1,7 @@
 {
   "stations":{
     "CHS-Terminal-A":{
-      "type":"",
+      "type":"A",
       "description":"First Terminal station infront of the Check-In area.",
       "coordinates":[
         -80.03625333309174,
@@ -9,7 +9,7 @@
       ]
     },
     "CHS-Terminal-B":{
-      "type":"",
+      "type":"A",
       "description":"Second Terminal station in the middle of the terminal.",
       "coordinates":[
         -80.03709554672241,
@@ -17,7 +17,23 @@
       ]
     },
     "CHS-Terminal-C":{
-      "type":"",
+      "type":"B",
+      "description":"Third Terminal station picking up infront of rental cars.",
+      "coordinates":[
+        -80.03759443759918,
+        32.884362460766916
+      ]
+    },
+    "CHS-Parking-A":{
+      "type":"C",
+      "description":"Rental Car Parking Lot",
+      "coordinates":[
+          -80.03935664892197,
+          32.88443228617835
+        ]
+    },
+    "CHS-Parking-B":{
+      "type":"C",
       "description":"Third Terminal station picking up infront of rental cars.",
       "coordinates":[
         -80.03759443759918,
@@ -56,6 +72,97 @@
           32.884362460766916
         ]
       ]
+    },
+    {
+      "from":"CHS-Terminal-C",
+      "to":"CHS-Terminal-1",
+      "coordinates":[
+        [
+          -80.03709554672241,
+          32.884389489964946
+        ],[
+          -80.03782778978348,
+          32.88432642182335
+        ]
+      ]
+    },
+    {
+      "from":"CHS-Terminal-1",
+      "to":"CHS-Parking-A",
+      "coordinates":[
+          [
+            -80.03811210393906,
+            32.88430840234607
+          ],
+          [
+            -80.03824353218079,
+            32.8843534510324
+          ],
+          [
+            -80.03829717636108,
+            32.884506616394596
+          ],
+          [
+            -80.03849565982817,
+            32.88460347082524
+          ],
+          [
+            -80.03869950771332,
+            32.88459896597033
+          ],[
+          -80.03935664892197,
+          32.88443228617835
+        ]
+      ]
+    },
+    {
+      "from":"CHS-Terminal-1",
+      "to":"CHS-Parking-B",
+      "coordinates": [
+        [
+          -80.03808796405792,
+          32.88426110120079
+        ],
+        [
+          -80.03812551498413,
+          32.88416424639596
+        ],
+        [
+          -80.03803163766861,
+          32.883864671562115
+        ],
+        [
+          -80.03794580698013,
+          32.883614649684915
+        ]
+      ]
     }
-  ]
+  ],
+  "nodes":{
+    "CHS-Terminal-1":{
+      "type":"split",
+      "coordinates":[
+        -80.03782778978348,
+        32.88432642182335
+      ],
+      "outs":{
+        "CHS-Parking-A":{
+          "out":[
+            -80.03811210393906,
+            32.88430840234607
+          ],
+          "thru_time":15000,
+          "thru_speed":10
+        },
+        "CHS-Parking-B":{
+          "out":[
+            -80.03808796405792,
+            32.88426110120079
+          ],
+          "thru_time":15000,
+          "thru_speed":10
+        }
+      }
+    }
+  }
 }
