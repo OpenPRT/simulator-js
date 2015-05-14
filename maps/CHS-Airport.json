@@ -12,9 +12,17 @@
       "type":"A",
       "description":"Second Terminal station in the middle of the terminal.",
       "coordinates":[
-        -80.03709554672241,
-        32.884389489964946
-      ]
+        -80.03682732582092,
+        32.88436696563383
+      ],
+      "outs":{
+        "CHS-Terminal-C":{
+          "out":[
+            -80.03709018230438,
+            32.88440075212839
+          ]
+        }
+      }
     },
     "CHS-Terminal-C":{
       "type":"B",
@@ -34,7 +42,7 @@
     },
     "CHS-Parking-A":{
       "type":"C",
-      "description":"Rental Car Parking Lot",
+      "description":"Rental Car parking Lot",
       "coordinates":[
           -80.03935664892197,
           32.88443228617835
@@ -42,10 +50,10 @@
     },
     "CHS-Parking-B":{
       "type":"C",
-      "description":"Third Terminal station picking up infront of rental cars.",
+      "description":"Short-term parking lot.",
       "coordinates":[
-        -80.03759443759918,
-        32.884362460766916
+        -80.03794580698013,
+        32.883614649684915
       ]
     }
   },
@@ -63,8 +71,8 @@
           32.8843489461648
         ],
         [
-          -80.03709554672241,
-          32.884389489964946
+          -80.03682732582092,
+          32.88436696563383
         ]
       ]
     },
@@ -73,8 +81,8 @@
       "to":"CHS-Terminal-C",
       "coordinates":[
         [
-          -80.03709554672241,
-          32.884389489964946
+          -80.03709018230438,
+          32.88440075212839
         ],[
           -80.03731548786163,
           32.88442102401893
